@@ -1,19 +1,19 @@
-// ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
-// ╠╩╗║╣ ║║║ ║ ║ ║
-// ╚═╝╚═╝╝╚╝ ╩ ╚═╝
-// ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌
-// │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││
-// └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘
-
+const sunDate = new Date()
+const sunrise = new Date((2*(2451545 + (53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)) + 0.0053 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) - 0.0069 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI))-(2451545 + 0.0009 + (Math.acos((Math.sin((-0.6783) * Math.PI/180) - Math.sin(Math.PI*103/360) * Math.sin(Math.asin(Math.sin(Math.PI * 23.4397/180) * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI)))) / (Math.cos(Math.PI*103/360) * Math.cos(Math.asin(Math.sin(Math.PI * 23.4397/180) * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI))))) + Math.PI/1800) / (2 * Math.PI) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)) + 0.0053 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) - 0.0069 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI))- 2440587.5) * 86400000).toTimeString().substring(0,5)
+const sunset = new Date(((2451545 + 0.0009 + (Math.acos((Math.sin((-0.6783) * Math.PI/180) - Math.sin(Math.PI*103/360) * Math.sin(Math.asin(Math.sin(Math.PI * 23.4397/180) * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI)))) / (Math.cos(Math.PI*103/360) * Math.cos(Math.asin(Math.sin(Math.PI * 23.4397/180) * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI))))) + Math.PI/1800) / (2 * Math.PI) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)) + 0.0053 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) - 0.0069 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))) + Math.PI/180 * (1.9148 * Math.sin(Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.02 * Math.sin(2 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000))))) + 0.0003 * Math.sin(3 * Math.PI/180 * (357.5291 + 0.98560028 * ((53/45000) + Math.round(sunDate.valueOf() / 86400000 -10957.5 - (53/45000)))))) + Math.PI*102.9372/180  + Math.PI))- 2440587.5) * 86400000).toTimeString().substring(0,5)
+//    _____             __ _                       _   _             
+//   / ____|           / _(_)                     | | (_)            
+//  | |     ___  _ __ | |_ _  __ _ _   _ _ __ __ _| |_ _  ___  _ __  
+//  | |    / _ \| '_ \|  _| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \ 
+//  | |___| (_) | | | | | | | (_| | |_| | | | (_| | |_| | (_) | | | |
+//   \_____\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|
+//                            __/ |                                  
+//                           |___/                                  
 const CONFIG = {
-	// ┌┐ ┌─┐┌─┐┬┌─┐┌─┐
-	// ├┴┐├─┤└─┐││  └─┐
-	// └─┘┴ ┴└─┘┴└─┘└─┘
-
 	// General
-	name: 'John',
-	imageBackground: false,
-	openInNewTab: true,
+	name: 'Robert',
+	imageBackground: true,
+	openInNewTab: false,
 	twelveHourFormat: false,
 
 	// Greetings
@@ -22,209 +22,102 @@ const CONFIG = {
 	greetingEvening: 'Good evening,',
 	greetingNight: 'Go to Sleep!',
 
-	// Layout
-	bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
-
 	// Weather
-	weatherKey: 'InsertYourAPIKeyHere123456', // Write here your API Key
+	weatherKey: '40585d1fe2d0d2babf31d9113a891045', // Write here your API Key
 	weatherIcons: 'OneDark', // 'Onedark', 'Nord', 'Dark', 'White'
 	weatherUnit: 'C', // 'F', 'C'
 	language: 'en', // More languages in https://openweathermap.org/current#multi
+	weatherLatitude: '51.430752',
+  	weatherLongitude: '-0.548150',
 
 	trackLocation: true, // If false or an error occurs, the app will use the lat/lon below
-	defaultLatitude: '37.775',
-	defaultLongitude: '-122.419',
+	defaultLatitude: '51.430752',
+	defaultLongitude: '-0.548150',
 
 	// Autochange
 	autoChangeTheme: true,
 
-	// Autochange by OS
-	changeThemeByOS: true,
-
 	// Autochange by hour options (24hrs format, string must be in: hh:mm)
-	changeThemeByHour: false,
-	hourDarkThemeActive: '18:30',
-	hourDarkThemeInactive: '07:00',
+	changeThemeByHour: true,
+	hourDarkThemeActive: sunset,
+	hourDarkThemeInactive: sunrise,
 
-	// ┌┐ ┬ ┬┌┬┐┌┬┐┌─┐┌┐┌┌─┐
-	// ├┴┐│ │ │  │ │ ││││└─┐
-	// └─┘└─┘ ┴  ┴ └─┘┘└┘└─┘
-
+    //Buttons
 	firstButtonsContainer: [
 		{
 			id: '1',
-			name: 'Github',
-			icon: 'github',
-			link: 'https://github.com/',
+			name: 'Azure',
+			icon: 'network',
+			link: 'https://dev.azure.com/exclaimerltd',
 		},
 		{
 			id: '2',
-			name: 'Mail',
-			icon: 'mail',
-			link: 'https://mail.protonmail.com/',
+			name: 'Confluence',
+			icon: 'book-open',
+			link: 'https://exclaimer.atlassian.net/wiki/home',
 		},
 		{
 			id: '3',
-			name: 'Todoist',
-			icon: 'trello',
-			link: 'https://todoist.com',
+			name: 'Scrum Board',
+			icon: 'list-checks',
+			link: 'https://exclaimer.atlassian.net/jira/software/c/projects/EXCL/boards/14',
 		},
 		{
 			id: '4',
-			name: 'Calendar',
-			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
+			name: 'People HR',
+			icon: 'users',
+			link: 'https://exclaimerlimited.peoplehr.net/Pages/LeftSegment/Dashboard.aspx',
 		},
 		{
 			id: '5',
-			name: 'Reddit',
-			icon: 'glasses',
-			link: 'https://reddit.com',
+			name: 'Bud',
+			icon: 'graduation-cap',
+			link: 'https://web.bud.co.uk/',
 		},
 		{
 			id: '6',
-			name: 'Odysee',
-			icon: 'youtube',
-			link: 'https://odysee.com/',
+			name: 'PR Board',
+			icon: 'layout-list',
+			link: 'https://pr.exclaimertest.net/',
 		},
 	],
 
 	secondButtonsContainer: [
 		{
 			id: '1',
-			name: 'Music',
-			icon: 'headphones',
-			link: 'https://open.spotify.com',
+			name: 'Mail',
+			icon: 'mail',
+			link: 'https://mail.google.com/',
 		},
 		{
 			id: '2',
-			name: 'twitter',
-			icon: 'twitter',
-			link: 'https://twitter.com/',
+			name: 'Reddit',
+			icon: 'glasses',
+			link: 'https://reddit.com',
 		},
 		{
 			id: '3',
-			name: 'bot',
-			icon: 'bot',
-			link: 'https://discord.com/app',
+			name: 'Youtube',
+			icon: 'youtube',
+			link: 'https://youtube.com/',
 		},
 		{
 			id: '4',
-			name: 'Amazon',
-			icon: 'shopping-bag',
-			link: 'https://amazon.com/',
+			name: 'ChatGPT',
+			icon: 'bot',
+			link: 'https://chat.openai.com/chat?model=gpt-4',
 		},
 		{
 			id: '5',
-			name: 'Hashnode',
-			icon: 'pen-tool',
-			link: 'https://hashnode.com/',
+			name: 'GitHub',
+			icon: 'github',
+			link: 'https://github.com/deathrjj/',
 		},
 		{
 			id: '6',
-			name: 'Figma',
-			icon: 'figma',
-			link: 'https://figma.com/',
-		},
-	],
-
-	// ┬  ┬┌─┐┌┬┐┌─┐
-	// │  │└─┐ │ └─┐
-	// ┴─┘┴└─┘ ┴ └─┘
-
-	// First Links Container
-	firstlistsContainer: [
-		{
-			icon: 'music',
-			id: '1',
-			links: [
-				{
-					name: 'Inspirational',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				},
-				{
-					name: 'Classic',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				},
-				{
-					name: 'Oldies',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				},
-				{
-					name: 'Rock',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-				},
-			],
-		},
-		{
-			icon: 'coffee',
-			id: '2',
-			links: [
-				{
-					name: 'Linkedin',
-					link: 'https://www.linkedin.com',
-				},
-				{
-					name: 'Dribbble',
-					link: 'https://www.dribbble.com',
-				},
-				{
-					name: 'Trello',
-					link: 'https://www.trello.com',
-				},
-				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
-				},
-			],
-		},
-	],
-
-	// Second Links Container
-	secondListsContainer: [
-		{
-			icon: 'binary',
-			id: '1',
-			links: [
-				{
-					name: 'Spotify',
-					link: 'https://www.spotify.com',
-				},
-				{
-					name: 'Reddit',
-					link: 'https://www.reddit.com',
-				},
-				{
-					name: 'Hashnode',
-					link: 'https://www.hashnode.com',
-				},
-				{
-					name: 'Pocket',
-					link: 'https://www.pocket.com',
-				},
-			],
-		},
-		{
-			icon: 'github',
-			id: '2',
-			links: [
-				{
-					name: 'Front',
-					link: 'https://www.reddit.com/r/Frontend/',
-				},
-				{
-					name: 'Rust',
-					link: 'https://www.reddit.com/r/rust/',
-				},
-				{
-					name: 'Go',
-					link: 'https://www.reddit.com/r/golang/',
-				},
-				{
-					name: 'Repos',
-					link: 'https://github.com/migueravila',
-				},
-			],
+			name: 'Home Assistant',
+			icon: 'home',
+			link: 'http://192.168.0.126:8123/',
 		},
 	],
 };

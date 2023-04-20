@@ -1,21 +1,32 @@
-//  ┌┬┐┬ ┬┌─┐┌┬┐┌─┐
-//  │ ├─┤├┤ │││├┤
-//  ┴ ┴ ┴└─┘┴ ┴└─┘
+//  _______ _                         
+// |__   __| |                        
+//    | |  | |__   ___ _ __ ___   ___ 
+//    | |  | '_ \ / _ \ '_ ` _ \ / _ \
+//    | |  | | | |  __/ | | | | |  __/
+//    |_|  |_| |_|\___|_| |_| |_|\___|
 // Set theme based on Configurations and Preferences
 
 let darkTheme = localStorage.getItem('darkTheme');
 const themeToggle = document.querySelector('#themeButton');
-const bodyBackground = document.getElementById('#body');
+const bodySelector = document.getElementsByTagName("body")[0]
 
 const enableDark = () => {
-	document.body.classList.add('darktheme');
+	if(document.body.classList.contains('theme--light')) {
+		document.body.classList.remove('theme--light');
+	}
+	document.body.classList.add('theme--dark');
+	bodySelector.style = "background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(assets/background.jpg);";
 	localStorage.setItem('darkTheme', 'enabled');
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="sun"></i>`;
 	lucide.createIcons();
 };
 
 const disableDark = () => {
-	document.body.classList.remove('darktheme');
+	if(document.body.classList.contains('theme--dark')) {
+		document.body.classList.remove('theme--dark');
+	}
+	document.body.classList.add('theme--light');
+	bodySelector.style = "background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(assets/background.jpg)";
 	localStorage.setItem('darkTheme', null);
 	themeToggle.innerHTML = `<i id="themeButton__icon" icon-name="moon"></i>`;
 	lucide.createIcons();
@@ -37,10 +48,6 @@ themeToggle.addEventListener('click', () => {
 		disableDark();
 	}
 });
-
-if (CONFIG.imageBackground) {
-	document.body.classList.add('withImageBackground');
-}
 
 if (CONFIG.changeThemeByOS && CONFIG.autoChangeTheme) {
 	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {

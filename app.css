@@ -1,84 +1,21 @@
-/* 
-// ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
-// ╠╩╗║╣ ║║║ ║ ║ ║
-// ╚═╝╚═╝╝╚╝ ╩ ╚═╝ 
-*/
-
-/* V A R I A B L E S */
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap'); /* Font Import */
-
-:root {
-  /* Font Size */
-  --fg-primary: 12vh; /* Time and Greetings */
-  --fg-secondary: 3vh; /* Greetings and Weather widger */
-  --fg-date: 8vh; /* Date */
-  --fg-list: 2vh; /* Links List */
-  --icon: 3vh; /* Icon Size */
-
-  /* Fonts Color */
-  --fg: #3a3a3a; /* Foreground color */
-  --sfg: #494949; /* Sceondary Foreground color */
-
-  /* Light Colors  */
-  --accent: #57a0d9; /* Hover color */
-  --background: #f5f5f5; /* Background color */
-  --cards: #e4e6e6; /* Cards color */
-
-  /* Image background  */
-  --imgbg: url(assets/background.jpg); /* Image URL */
-  --imgcol: linear-gradient(
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.7)
-  ); /* Filter color */
-}
-
-.darktheme {
-  /* Dark Colors  */
-  --accent: #57a0d9; /* Hover color */
-  --background: #19171a; /* Background color */
-  --cards: #201e21; /* Cards color */
-
-  /* Fonts Color */
-  --fg: #d8dee9; /* Foreground color */
-  --sfg: #2c292e; /* Secondary Foreground color */
-
-  /* Image background  */
-  --imgcol: linear-gradient(
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.85)
-  ); /* Filter color */
-}
-
-/* S T Y L E S */
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   transition: 0.2s ease-in-out;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.notransition {
-  -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
+body .notransition {
   transition: none;
-}
-
-.withImageBackground {
-  background-image: var(--imgcol), var(--imgbg);
-  background-size: cover;
 }
 
 #themeButton {
@@ -86,10 +23,15 @@ body {
   margin: 2em 2em 0 0;
   right: 0;
   top: 0;
-  color: var(--fg);
   border: none;
   cursor: pointer;
-  background-color: #00000000;
+  background-color: rgba(0, 0, 0, 0);
+}
+.theme--light #themeButton {
+  color: #3a3a3a;
+}
+.theme--dark #themeButton {
+  color: #d8dee9;
 }
 
 #themeIcon {
@@ -98,42 +40,48 @@ body {
 }
 
 .container {
-  width: 145vh;
+  width: 85vw;
   height: 85vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-gap: 30px;
-  padding: 20px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 0px;
+  padding: 0px;
 }
 
 .card {
-  background-color: var(--cards);
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
   border-radius: 5px;
 }
-
+.theme--light .card {
+  background-color: #e4e6e6;
+}
+.theme--dark .card {
+  background-color: #201e21;
+}
 .card:hover {
   transform: translateY(-0.2rem);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
 }
 
 .timeBlock {
-  grid-row: 1 / span 2;
-  grid-column: 1 / span 2;
+  grid-row: 1/span 2;
+  grid-column: 1/span 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: -15vh;
 }
 
 .weatherBlock {
-  grid-column: 3 / span 2;
-  grid-row: 1 / span 2;
+  grid-column: 3/span 2;
+  grid-row: 1/span 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: -15vh;
 }
 
 .date {
@@ -143,40 +91,54 @@ body {
   margin-top: 30px;
 }
 
-.weather {
+.weather, .clock {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.clock {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#hour,
-#separator,
-#minutes {
-  font-size: var(--fg-primary);
+#hour, #separator, #minutes {
+  font-size: 10rem;
   font-weight: bolder;
-  color: var(--fg);
+}
+.theme--light #hour, .theme--light #separator, .theme--light #minutes {
+  color: #3a3a3a;
+}
+.theme--dark #hour, .theme--dark #separator, .theme--dark #minutes {
+  color: #d8dee9;
 }
 
-#month,
-#day {
-  font-size: var(--fg-date);
+#month {
+  font-size: 7rem;
   font-weight: bold;
-  color: var(--fg);
+}
+.theme--light #month {
+  color: #3a3a3a;
+}
+.theme--dark #month {
+  color: #d8dee9;
 }
 
 #day {
+  font-size: 7rem;
+  font-weight: bold;
   margin-left: 1.5rem;
+}
+.theme--light #day {
+  color: #3a3a3a;
+}
+.theme--dark #day {
+  color: #d8dee9;
 }
 
 #greetings {
-  font-size: var(--fg-secondary);
-  color: var(--fg);
+  font-size: 2rem;
+}
+.theme--light #greetings {
+  color: #3a3a3a;
+}
+.theme--dark #greetings {
+  color: #d8dee9;
 }
 
 .weatherIcon img {
@@ -185,16 +147,26 @@ body {
 }
 
 .weatherValue p {
-  font-size: var(--fg-secondary);
+  font-size: 2rem;
   font-weight: bolder;
   margin-left: 15px;
-  color: var(--fg);
+}
+.theme--light .weatherValue p {
+  color: #3a3a3a;
+}
+.theme--dark .weatherValue p {
+  color: #d8dee9;
 }
 
 .weatherDescription p {
-  font-size: var(--fg-secondary);
+  font-size: 2rem;
   margin-left: 15px;
-  color: var(--fg);
+}
+.theme--light .weatherDescription p {
+  color: #3a3a3a;
+}
+.theme--dark .weatherDescription p {
+  color: #d8dee9;
 }
 
 .reduceGap {
@@ -206,8 +178,8 @@ body {
 }
 
 .linksBlock {
-  grid-row: 3 / span 2;
-  grid-column: 1 / span 4;
+  grid-row: 3/span 2;
+  grid-column: 1/span 4;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -215,149 +187,76 @@ body {
 }
 
 .linksBlockLeft {
-  grid-row: 1 / span 2;
-  grid-column: 1 / span 2;
+  grid-row: 1/span 2;
+  grid-column: 1/span 2;
 }
 
 .linksBlockRight {
-  grid-row: 1 / span 2;
-  grid-column: 3 / span 2;
+  grid-row: 1/span 2;
+  grid-column: 3/span 2;
 }
 
 .buttonsContainer {
-  width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 30px;
-  padding: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 1vh;
+  grid-row-gap: 6vh;
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 15vw;
+  height: 15vh;
+  margin-left: 5vw;
+}
+.theme--light .button:hover {
+  background-color: #57a0d9;
+}
+.theme--dark .button:hover {
+  background-color: #57a0d9;
 }
 
 .buttonIcon {
-  width: var(--icon);
-  height: var(--icon);
-  color: var(--fg);
+  width: 3rem;
+  height: 3rem;
+}
+.theme--light .buttonIcon {
+  color: #3a3a3a;
+}
+.theme--dark .buttonIcon {
+  color: #d8dee9;
 }
 
 .button__1 {
-  grid-row: 1;
-  grid-column: 1;
+  grid-area: 1/1/2/2;
 }
+
 .button__2 {
-  grid-row: 1;
-  grid-column: 2;
+  grid-area: 1/2/2/3;
 }
+
 .button__3 {
-  grid-row: 2;
-  grid-column: 1;
+  grid-area: 2/1/3/2;
 }
+
 .button__4 {
-  grid-row: 2;
-  grid-column: 2;
+  grid-area: 2/2/3/3;
 }
+
 .button__5 {
-  grid-row: 1;
-  grid-column: 3;
+  grid-area: 3/1/4/2;
 }
+
 .button__6 {
-  grid-row: 2;
-  grid-column: 3;
-}
-.button:hover {
-  background-color: var(--accent);
-}
-.button:hover svg {
-  stroke: var(--sfg);
+  grid-area: 3/2/4/3;
 }
 
-.listsContainer {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 3rem;
-  padding: 0.4rem;
+.theme--light svg {
+  stroke: #3a3a3a;
 }
-
-.list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.list__1 {
-  grid-column: 1;
-  grid-row: 1 / span 2;
-}
-.list__2 {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-}
-.listIcon {
-  /* margin-top: 3vh; */
-  margin-bottom: 2vh;
-  color: var(--fg);
-  width: var(--icon);
-  height: var(--icon);
-}
-.listItem {
-  text-decoration: none;
-  font-size: var(--fg-list);
-  color: var(--fg);
-  margin-top: 1vh;
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-weight: bold;
-  text-align: center;
-  width: 80%;
-}
-.listItem:hover {
-  background-color: var(--accent);
-  color: var(--sfg);
-}
-
-/* M E D I A - Q U E R I E S */
-
-@media only screen and (max-width: 68.75em) {
-  .container {
-    grid-gap: 20px;
-    padding: 40px;
-  }
-
-  .timeBlock {
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 4;
-  }
-
-  .weatherBlock {
-    display: none;
-  }
-
-  #greetings {
-    font-size: var(--fg-secondary);
-  }
-
-  .linksBlockRight {
-    display: none;
-  }
-
-  .linksBlockLeft {
-    grid-column: 1 / span 4;
-  }
-
-  .button {
-    grid-gap: 3vw;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-}
+.theme--dark svg {
+  stroke: #d8dee9;
+}/*# sourceMappingURL=app.css.map */

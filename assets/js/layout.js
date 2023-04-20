@@ -1,45 +1,30 @@
-// ┬  ┌─┐┬ ┬┌─┐┬ ┬┌┬┐
-// │  ├─┤└┬┘│ ││ │ │
-// ┴─┘┴ ┴ ┴ └─┘└─┘ ┴
-// Generate Layout.
+//  _                             _   
+// | |                           | |  
+// | |     __ _ _   _  ___  _   _| |_ 
+// | |    / _` | | | |/ _ \| | | | __|
+// | |___| (_| | |_| | (_) | |_| | |_ 
+// |______\__,_|\__, |\___/ \__,_|\__|
+//               __/ |                
+//              |___/                 
+// Generate Layout and Responsiveness
 
-const generateLayout = () => {
-	let firstButtonsContainer = `
-    <div class="buttonsContainer" id="buttons_1"></div>
-  `;
-	let secondButtonsContainer = `
-    <div class="buttonsContainer" id="buttons_2"></div>
-  `;
-	let firstListsContainer = `
-    <div class="listsContainer" id="lists_1"></div>
-  `;
+function updateButtonsHeight() {
+  if (window.innerWidth <= 1250) {
+    const buttons = document.querySelectorAll(".button");
+    const multiplier = window.innerWidth / window.innerHeight;
+    buttons.forEach((button) => {
+    button.style.height = `${multiplier * 15}vh`;//15 = current button vw
+    });
+  }
+}  
+window.addEventListener("resize", updateButtonsHeight);
+window.addEventListener("DOMContentLoaded", updateButtonsHeight);
 
-	let secondListsContainer = `
-    <div class="listsContainer" id="lists_2"></div>
-  `;
-
-	const position = 'beforeend';
-
-	switch (CONFIG.bentoLayout) {
-		case 'bento':
-			linksBlockLeft.insertAdjacentHTML(position, firstButtonsContainer);
-			linksBlockRight.insertAdjacentHTML(position, firstListsContainer);
-			linksBlock.classList.remove('reduceGap');
-			linksBlock.classList.remove('removeGap');
-			break;
-		case 'lists':
-			linksBlockLeft.insertAdjacentHTML(position, firstListsContainer);
-			linksBlockRight.insertAdjacentHTML(position, secondListsContainer);
-			linksBlock.classList.add('reduceGap');
-			break;
-		case 'buttons':
-			linksBlockLeft.insertAdjacentHTML(position, firstButtonsContainer);
-			linksBlockRight.insertAdjacentHTML(position, secondButtonsContainer);
-			linksBlock.classList.add('removeGap');
-			break;
-		default:
-			break;
-	}
-};
-
-generateLayout();
+let firstButtonsContainer = `
+    <div class="buttonsContainer" id="buttons_1"></div>`;
+let secondButtonsContainer = `
+    <div class="buttonsContainer" id="buttons_2"></div>`;
+const position = 'beforeend';
+linksBlockLeft.insertAdjacentHTML(position, firstButtonsContainer);
+linksBlockRight.insertAdjacentHTML(position, secondButtonsContainer);
+linksBlock.classList.add('removeGap');

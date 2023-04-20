@@ -1,0 +1,216 @@
+//   ____  ______ _   _ _______ ____  
+// 	|  _ \|  ____| \ | |__   __/ __ \ 
+// 	| |_) | |__  |  \| |  | | | |  | |
+// 	|  _ <|  __| | . ` |  | | | |  | |
+// 	| |_) | |____| |\  |  | | | |__| |
+// 	|____/|______|_| \_|  |_|  \____/ 
+
+// Font Import
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap')
+@import "themes"
+// V A R I A B L E S
+$imgbg: url(assets/upscaled_background.jpg)// Image URL
+$fg-primary: 10rem// Time and Greetings
+$fg-secondary: 2rem// Greetings and Weather widget
+$fg-date: 7rem// Date
+$icon: 3rem// Icon Size
+
+// S T Y L E S
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: 'Open Sans', sans-serif
+    transition: 0.2s ease-in-out
+
+body
+    width: 100vw
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center
+
+    .notransition
+        -webkit-transition: none
+        -moz-transition: none
+        -o-transition: none
+        transition: none
+
+#themeButton
+    position: absolute
+    margin: 2em 2em 0 0
+    right: 0
+    top: 0
+    border: none
+    cursor: pointer
+    background-color: #00000000
+
+    @include themed()
+        color: t('fg')
+
+#themeIcon
+    width: 25px
+    height: 25px
+
+.container
+    width: 85vw
+    height: 85vh
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    grid-gap: 0px
+    padding: 0px
+
+.card
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35)
+    border-radius: 5px
+
+    @include themed()
+        background-color: t('cards')
+
+    &:hover
+        transform: translateY(-0.2rem)
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35)
+
+.timeBlock
+    grid-row: 1 / span 2
+    grid-column: 1 / span 2
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin-top: -15vh
+
+.weatherBlock
+    grid-column: 3 / span 2
+    grid-row: 1 / span 2
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin-top: -15vh
+
+.date
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 30px
+
+.weather, .clock
+    display: flex
+    align-items: center
+    justify-content: center
+
+#hour, #separator, #minutes
+    font-size: $fg-primary
+    font-weight: bolder
+
+    @include themed()
+        color: t('fg')
+
+#month
+    font-size: $fg-date
+    font-weight: bold
+
+    @include themed()
+        color: t('fg')
+
+#day
+    font-size: $fg-date
+    font-weight: bold
+    margin-left: 1.5rem
+
+    @include themed()
+        color: t('fg')
+
+#greetings
+    font-size: $fg-secondary
+
+    @include themed()
+        color: t('fg')
+
+.weatherIcon img
+    width: 70px
+    height: 70px
+
+.weatherValue p
+    font-size: $fg-secondary
+    font-weight: bolder
+    margin-left: 15px
+
+    @include themed()
+        color: t('fg')
+.weatherDescription p
+    font-size: $fg-secondary
+    margin-left: 15px
+
+    @include themed()
+        color: t('fg')
+.reduceGap
+    grid-gap: 2rem !important
+
+.removeGap
+    grid-gap: 0 !important
+
+.linksBlock
+    grid-row: 3 / span 2
+    grid-column: 1 / span 4
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    grid-template-rows: repeat(2, 1fr)
+    grid-gap: 1.5rem
+
+.linksBlockLeft
+    grid-row: 1 / span 2
+    grid-column: 1 / span 2
+
+.linksBlockRight
+    grid-row: 1 / span 2
+    grid-column: 3 / span 2
+
+.buttonsContainer
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    grid-column-gap: 1vh
+    grid-row-gap: 6vh
+
+.button
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 15vw
+    height: 15vh
+    margin-left: 5vw
+    &:hover
+        @include themed()
+            background-color: t('accent')
+.buttonIcon
+    width: $icon
+    height: $icon
+
+    @include themed()
+        color: t('fg')
+
+.button__1
+    grid-area: 1 / 1 / 2 / 2
+
+.button__2
+    grid-area: 1 / 2 / 2 / 3
+
+.button__3
+    grid-area: 2 / 1 / 3 / 2
+
+.button__4
+    grid-area: 2 / 2 / 3 / 3
+
+.button__5
+    grid-area: 3 / 1 / 4 / 2
+
+.button__6
+    grid-area: 3 / 2 / 4 / 3
+
+svg
+    @include themed()
+        stroke: t('fg')
