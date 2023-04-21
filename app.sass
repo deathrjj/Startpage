@@ -57,10 +57,8 @@ body
     width: 85vw
     height: 85vh
     display: grid
-    grid-template-columns: repeat(4, 1fr)
-    grid-template-rows: repeat(2, 1fr)
-    grid-gap: 0px
-    padding: 0px
+    grid-template-columns: repeat(2)
+    grid-template-rows: repeat(2)
 
 .card
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35)
@@ -74,8 +72,8 @@ body
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35)
 
 .timeBlock
-    grid-row: 1 / span 2
-    grid-column: 1 / span 2
+    grid-row: 1
+    grid-column: 1
     display: flex
     flex-direction: column
     align-items: center
@@ -83,8 +81,8 @@ body
     margin-top: -15vh
 
 .weatherBlock
-    grid-column: 3 / span 2
-    grid-row: 1 / span 2
+    grid-row: 1
+    grid-column: 2
     display: flex
     flex-direction: column
     align-items: center
@@ -95,7 +93,6 @@ body
     display: flex
     align-items: center
     justify-content: center
-    margin-top: 30px
 
 .weather, .clock
     display: flex
@@ -141,12 +138,14 @@ body
 
     @include themed()
         color: t('fg')
+
 .weatherDescription p
     font-size: $fg-secondary
     margin-left: 15px
 
     @include themed()
         color: t('fg')
+
 .reduceGap
     grid-gap: 2rem !important
 
@@ -154,27 +153,24 @@ body
     grid-gap: 0 !important
 
 .linksBlock
-    grid-row: 3 / span 2
-    grid-column: 1 / span 4
+    grid-row: 2
+    grid-column: 1 / span 2
     display: grid
-    grid-template-columns: repeat(4, 1fr)
-    grid-template-rows: repeat(2, 1fr)
+    grid-template-columns: repeat(2, 1fr)
     grid-gap: 1.5rem
 
 .linksBlockLeft
-    grid-row: 1 / span 2
-    grid-column: 1 / span 2
+    grid-column: 1
 
 .linksBlockRight
-    grid-row: 1 / span 2
-    grid-column: 3 / span 2
+    grid-column: 2
 
 .buttonsContainer
     display: grid
     grid-template-columns: repeat(2, 1fr)
     grid-template-rows: repeat(3, 1fr)
-    grid-column-gap: 1vh
-    grid-row-gap: 6vh
+    column-gap: 1vh
+    row-gap: 6vh
 
 .button
     display: flex
@@ -186,6 +182,7 @@ body
     &:hover
         @include themed()
             background-color: t('accent')
+
 .buttonIcon
     width: $icon
     height: $icon
