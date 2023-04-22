@@ -9,13 +9,16 @@
 // Generate Layout and Responsiveness
 
 function updateButtonsHeight() {
+  const buttons = document.querySelectorAll(".button");
   if (window.innerWidth <= 1250) {
-    const buttons = document.querySelectorAll(".button");
     const multiplier = window.innerWidth / window.innerHeight;
     buttons.forEach((button) => {
-    button.style.height = `${multiplier * 15}vh`;//15 = current button vw
+      button.style.height = `${multiplier * 15}vh`;//15 = current button vw
     });
   }
+  buttons.forEach((button) => {
+    button.style.height = `${multiplier * 15}vh`;//15 = current button vw
+  });
 }  
 window.addEventListener("resize", updateButtonsHeight);
 window.addEventListener("DOMContentLoaded", updateButtonsHeight);
@@ -27,4 +30,3 @@ let secondButtonsContainer = `
 const position = 'beforeend';
 linksBlockLeft.insertAdjacentHTML(position, firstButtonsContainer);
 linksBlockRight.insertAdjacentHTML(position, secondButtonsContainer);
-linksBlock.classList.add('removeGap');

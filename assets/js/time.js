@@ -22,6 +22,9 @@ function displayClock() {
 		hh = hh % 12;
 		hh = hh ? hh : 12;
 	}
+	if (hh < 10) {
+		var hh = '0' + hh.toString();
+	}
 
 	document.getElementById('hour').innerText = hh;
 	document.getElementById('separator').innerHTML = ' : ';

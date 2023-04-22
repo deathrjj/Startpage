@@ -5,17 +5,27 @@
 // 	| |_) | |____| |\  |  | | | |__| |
 // 	|____/|______|_| \_|  |_|  \____/ 
 
-// Font Import
+// I M P O R T S 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap')
 @import "themes"
+
+// M I X I N S
+@mixin flex-centered
+    display: flex
+    align-items: center
+    justify-content: center
+
 // V A R I A B L E S
-$imgbg: url(assets/upscaled_background.jpg)// Image URL
-$fg-primary: 10rem// Time and Greetings
-$fg-secondary: 2rem// Greetings and Weather widget
-$fg-date: 7rem// Date
+
+$imgbg: url("assets/upscaled_background.jpg")// Image URL
 $icon: 3rem// Icon Size
 
 // S T Y L E S
+.theme--light
+    background: linear-gradient(#FFFFFF44,#FFFFFF44), 50% calc(50% - 36px)/cover $imgbg
+
+.theme--dark
+    background: linear-gradient(#00000044,#00000044), 50% calc(50% - 36px)/cover $imgbg
 
 *
     margin: 0
@@ -39,13 +49,12 @@ body
 
 #themeButton
     position: absolute
-    margin: 2em 2em 0 0
+    margin: 1em 1em 0 0
     right: 0
     top: 0
     border: none
     cursor: pointer
     background-color: #00000000
-
     @include themed()
         color: t('fg')
 
@@ -54,123 +63,81 @@ body
     height: 25px
 
 .container
+    margin-top: -15vh
     width: 85vw
     height: 85vh
     display: grid
+    grid-template-rows: repeat(3)
     grid-template-columns: repeat(2)
-    grid-template-rows: repeat(2)
+
+.clock
+    grid-row: 1
+    grid-column: 1
+    @include flex-centered
+    font-size: 10rem
+    font-weight: bold
+    @include themed()
+        color: t('fg')
+
+.date
+    padding-left: 5vw
+    grid-row: 1
+    grid-column: 2
+    @include flex-centered
+    font-size: 8rem
+    font-weight: bold
+    @include themed()
+        color: t('fg')
+
+#day
+    margin-left: 1.5rem
+
+#greeting
+    grid-row: 2
+    grid-column: 1
+    @include flex-centered
+    font-size: 2rem
+    @include themed()
+        color: t('fg')
+
+.weather
+    grid-row: 2
+    grid-column: 2
+    @include flex-centered
+
+.weatherIcon img
+    width: 3rem
+    height: 3rem
+
+.weatherValue p
+    font-size: 3rem
+    margin-left: 15px
+    @include themed()
+        color: t('fg')
+
+.weatherDescription p
+    font-size: 3rem
+    margin-left: 15px
+    @include themed()
+        color: t('fg')
+
+.buttonsContainer
+    padding-top: 5vh
+    grid-row: 3
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: repeat(3, 1fr)
+    row-gap: 6vh
 
 .card
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35)
     border-radius: 5px
-
     @include themed()
         background-color: t('cards')
 
     &:hover
         transform: translateY(-0.2rem)
         box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35)
-
-.timeBlock
-    grid-row: 1
-    grid-column: 1
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    margin-top: -15vh
-
-.weatherBlock
-    grid-row: 1
-    grid-column: 2
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
-    margin-top: -15vh
-
-.date
-    display: flex
-    align-items: center
-    justify-content: center
-
-.weather, .clock
-    display: flex
-    align-items: center
-    justify-content: center
-
-#hour, #separator, #minutes
-    font-size: $fg-primary
-    font-weight: bolder
-
-    @include themed()
-        color: t('fg')
-
-#month
-    font-size: $fg-date
-    font-weight: bold
-
-    @include themed()
-        color: t('fg')
-
-#day
-    font-size: $fg-date
-    font-weight: bold
-    margin-left: 1.5rem
-
-    @include themed()
-        color: t('fg')
-
-#greetings
-    font-size: $fg-secondary
-
-    @include themed()
-        color: t('fg')
-
-.weatherIcon img
-    width: 70px
-    height: 70px
-
-.weatherValue p
-    font-size: $fg-secondary
-    font-weight: bolder
-    margin-left: 15px
-
-    @include themed()
-        color: t('fg')
-
-.weatherDescription p
-    font-size: $fg-secondary
-    margin-left: 15px
-
-    @include themed()
-        color: t('fg')
-
-.reduceGap
-    grid-gap: 2rem !important
-
-.removeGap
-    grid-gap: 0 !important
-
-.linksBlock
-    grid-row: 2
-    grid-column: 1 / span 2
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-gap: 1.5rem
-
-.linksBlockLeft
-    grid-column: 1
-
-.linksBlockRight
-    grid-column: 2
-
-.buttonsContainer
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-template-rows: repeat(3, 1fr)
-    column-gap: 1vh
-    row-gap: 6vh
 
 .button
     display: flex
@@ -186,7 +153,6 @@ body
 .buttonIcon
     width: $icon
     height: $icon
-
     @include themed()
         color: t('fg')
 
